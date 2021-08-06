@@ -172,13 +172,14 @@ function custom_toolbar() {
 
 }
 add_action( 'wp_before_admin_bar_render', 'custom_toolbar', 999 );
+
 // Register Custom Taxonomy
 function custom_taxonomy() {
 
 	$labels = array(
 		'name'                       => _x( 'Taxonomies', 'Taxonomy General Name', 'text_domain' ),
 		'singular_name'              => _x( 'Taxonomy', 'Taxonomy Singular Name', 'text_domain' ),
-		'menu_name'                  => __( 'Novas Categorias', 'text_domain' ),
+		'menu_name'                  => __( 'Taxonomy', 'text_domain' ),
 		'all_items'                  => __( 'All Items', 'text_domain' ),
 		'parent_item'                => __( 'Parent Item', 'text_domain' ),
 		'parent_item_colon'          => __( 'Parent Item:', 'text_domain' ),
@@ -206,10 +207,7 @@ function custom_taxonomy() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'taxonomy', array( 'post_type' ), $args );
-
-}
-add_action( 'init', 'custom_taxonomy', 0 );' ), $args );
+	register_taxonomy( 'taxonomy', array( 'post' ), $args );
 
 }
 add_action( 'init', 'custom_taxonomy', 0 );
